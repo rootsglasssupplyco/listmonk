@@ -41,10 +41,16 @@ host, no trailing slash).
 - In listmonk admin: **Settings → General → Root URL** → set to the same URL
   (used in email links & unsubscribe URLs).
 
-### 5. Email sending (SMTP)
-In listmonk admin: **Settings → SMTP**. Use a real provider (Amazon SES,
-Postmark, Mailgun, …) and add the SPF/DKIM DNS records they give you on
-`rootsglasswholesale.com` — required for deliverability.
+### 5. Email sending (SMTP) — Cloudways
+Email is sent via the **Cloudways SMTP add-on** (powered by Elastic Email).
+1. Cloudways panel → enable the **SMTP add-on** → copy the **host, port,
+   username, password** it gives you.
+2. listmonk admin → **Settings → SMTP** → paste those four values
+   (use port 587 with STARTTLS/TLS enabled).
+3. Add the **SPF + DKIM** DNS records Cloudways/Elastic Email provides to the
+   `rootsglasswholesale.com` DNS zone — required for inbox deliverability.
+4. Set the campaign **From** address (e.g. `news@rootsglasswholesale.com`) on a
+   domain that matches those SPF/DKIM records.
 
 ## Notes
 - App is AGPLv3 and free to self-host. You only pay for Railway hosting + your SMTP provider.

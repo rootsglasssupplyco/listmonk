@@ -1,0 +1,94 @@
+<!--
+  Roots Glass Wholesale — listmonk campaign template
+  ---------------------------------------------------
+  HOW TO USE:
+  1. In listmonk admin: Campaigns -> Templates -> + New -> type "Campaign".
+  2. Paste this whole file into the HTML box and Save.
+  3. When creating a campaign, pick "Roots Glass Wholesale" as the template.
+
+  WHAT TO CHANGE (search for these):
+    - LOGO_URL      : replace with a hosted logo image (hotlink from your
+                      WordPress/Cloudways site so it survives Railway redeploys).
+    - #b5651d       : the accent color. Find/replace to rebrand.
+    - Company address in the footer (legal requirement for bulk email).
+
+  The {{ template "content" . }} tag is REQUIRED — it's where each campaign's
+  body is injected. Do not remove it. {{ UnsubscribeURL }} is also required by
+  law and by most providers; keep it in the footer.
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Roots Glass Wholesale</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f2ee; -webkit-text-size-adjust:100%;">
+
+  <!-- Preheader (hidden preview text) -->
+  <div style="display:none; max-height:0; overflow:hidden; font-size:1px; line-height:1px; color:#f4f2ee;">
+    News &amp; wholesale offers from Roots Glass Wholesale.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f2ee;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+
+        <!-- Container -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background-color:#ffffff; border-radius:8px; overflow:hidden; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+
+          <!-- Header / logo -->
+          <tr>
+            <td align="center" style="background-color:#2b2622; padding:28px 24px;">
+              <!-- Replace LOGO_URL with your hosted logo; fallback text shows if image is blocked -->
+              <a href="https://rootsglasswholesale.com" style="text-decoration:none;">
+                <img src="LOGO_URL" alt="Roots Glass Wholesale" width="180" style="display:block; border:0; max-width:180px; height:auto;" />
+                <div style="color:#ffffff; font-size:20px; font-weight:700; letter-spacing:0.5px; margin-top:6px;">ROOTS GLASS WHOLESALE</div>
+              </a>
+            </td>
+          </tr>
+
+          <!-- Accent bar -->
+          <tr><td style="height:4px; background-color:#b5651d; font-size:0; line-height:0;">&nbsp;</td></tr>
+
+          <!-- Body: campaign content drops in here -->
+          <tr>
+            <td style="padding:32px 32px 24px 32px; color:#2b2622; font-size:16px; line-height:1.6;">
+              {{ template "content" . }}
+            </td>
+          </tr>
+
+          <!-- CTA divider -->
+          <tr>
+            <td style="padding:0 32px;">
+              <hr style="border:0; border-top:1px solid #e7e3dc; margin:0;" />
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:24px 32px 32px 32px; color:#857d72; font-size:13px; line-height:1.6; text-align:center;">
+              <p style="margin:0 0 8px 0;">
+                You're receiving this because you signed up at
+                <a href="https://rootsglasswholesale.com" style="color:#b5651d; text-decoration:none;">rootsglasswholesale.com</a>.
+              </p>
+              <p style="margin:0 0 12px 0;">
+                Roots Glass Wholesale &middot; [Street Address], [City, State ZIP]
+              </p>
+              <p style="margin:0;">
+                <a href="{{ UnsubscribeURL }}" style="color:#857d72; text-decoration:underline;">Unsubscribe</a>
+                &nbsp;&middot;&nbsp;
+                <a href="{{ MessageURL }}" style="color:#857d72; text-decoration:underline;">View in browser</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+        <!-- /Container -->
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

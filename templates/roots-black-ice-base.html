@@ -1,0 +1,81 @@
+<!--
+  Roots Glass — "BLACK ICE" listmonk base template (the reusable wrapper)
+  =======================================================================
+  HOW TO USE:
+  1. listmonk admin -> Campaigns -> Templates -> + New -> type "Campaign".
+  2. Name it "Roots — Black Ice".
+  3. Paste this whole file into the HTML box and Save.
+  4. When you build the ROOTS10 win-back, create the campaign with content type
+     "Raw HTML", select THIS template, and paste the contents of
+     templates/campaigns/roots10-winback.html into the content box.
+
+  WHY A WRAPPER: this file provides the dark page background + the legal footer
+  (unsubscribe + address). Your campaign content is injected at
+  {{ template "content" . }}. The campaign brings its own hero/products, so this
+  wrapper deliberately has NO logo header of its own.
+
+  BRAND KIT (Black Ice): bg #0A0A0A · text #FFFFFF · muted #B3B3B3 · accent neon
+  green #39FF14. To rebrand, find/replace #39FF14.
+
+  REQUIRED TAGS: keep {{ template "content" . }} and {{ UnsubscribeURL }}.
+  TO EDIT: the [Street Address] in the footer (legally required for bulk email).
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Roots Glass</title>
+  <style>
+    /* Responsive helpers — used by the campaign content too. Outlook ignores
+       these and falls back to the desktop table widths, which is fine. */
+    @media only screen and (max-width:600px) {
+      .container { width:100% !important; }
+      .stack { display:block !important; width:100% !important; box-sizing:border-box; }
+      .px { padding-left:20px !important; padding-right:20px !important; }
+      .hero-h1 { font-size:46px !important; line-height:1.02 !important; }
+      .gap { height:14px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#0A0A0A; -webkit-text-size-adjust:100%;">
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#0A0A0A;">
+    <tr>
+      <td align="center" style="padding:0;">
+
+        <!-- 600px container -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" class="container" style="width:600px; max-width:600px; background-color:#0A0A0A; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+
+          <!-- Campaign content is injected here -->
+          <tr>
+            <td style="padding:0;">
+              {{ template "content" . }}
+            </td>
+          </tr>
+
+          <!-- Legal footer -->
+          <tr>
+            <td class="px" style="padding:28px 32px 36px 32px; background-color:#0A0A0A; border-top:1px solid #1f1f1f; color:#7d7d7d; font-size:12px; line-height:1.6; text-align:center;">
+              <p style="margin:0 0 8px 0; color:#9a9a9a; font-weight:700; letter-spacing:1px;">ROOTS GLASS SUPPLY CO</p>
+              <p style="margin:0 0 12px 0;">
+                You're receiving this because you signed up or ordered with us.<br />
+                Roots Glass Supply Co &middot; [Street Address] &middot; Huntington Beach, CA [ZIP]
+              </p>
+              <p style="margin:0;">
+                <a href="{{ UnsubscribeURL }}" style="color:#39FF14; text-decoration:underline;">Unsubscribe</a>
+                &nbsp;&middot;&nbsp;
+                <a href="{{ MessageURL }}" style="color:#7d7d7d; text-decoration:underline;">View in browser</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+        <!-- /container -->
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
